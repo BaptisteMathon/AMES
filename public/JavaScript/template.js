@@ -1,5 +1,5 @@
 async function InfoProject(){
-    const url = "http://localhost:3000/projects/"
+    const url = "https://ames-database.vercel.app/projects/"
     const nameProject = document.getElementById('name-project').innerHTML
 
     fetch(url + nameProject)
@@ -77,7 +77,7 @@ async function InfoProject(){
                     
                     let joinSS = arraySousTitre.join(';')
                     console.log(joinSS)
-                    fetch("http://localhost:3000/projects/" + data.name, {
+                    fetch("https://ames-database.vercel.app/projects/" + data.name, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -114,7 +114,7 @@ async function InfoProject(){
                     let newArr2 = arraySousTitre.join(';')
                     console.log(newArr1)
                     console.log(newArr2)
-                    fetch("http://localhost:3000/projects/" + data.name, {
+                    fetch("https://ames-database.vercel.app/projects/" + data.name, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -166,7 +166,7 @@ function Update(){
     let sousTitre = ArraySousTitle.join(';')
     // console.log(strTitle)
     // console.log('sous titre: ' + sousTitre)
-    fetch("http://localhost:3000/projects/" + nameProject, {
+    fetch("https://ames-database.vercel.app/projects/" + nameProject, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -211,7 +211,7 @@ function AddTitle(){
     sousTitre += ';T1'
     console.log(strTitle)
 
-    fetch("http://localhost:3000/projects/" + nameProject, {
+    fetch("https://ames-database.vercel.app/projects/" + nameProject, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
