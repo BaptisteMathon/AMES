@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des projets | AMES</title>
+    <link rel="stylesheet" href="/detail.css">
+</head>
+<body>   
+
+    <!-- <a href="/projects-list" id="link">Retourner au menu</a> 
+    <a href="/" id="link">Retourner a l'accueil</a>  -->
+    <!-- <p id="updateDiagramm">Mettre à jour</p> -->
+     <div class="headerPage">
+         <h1 id="NameProject"><%= name_project%></h1>
+        <img src="/Img/LogoN.png" alt="" width="100px">
+     </div>
+
+    
+    <section class="mainSectionPlan">        
+        <img src="/Img/plus.png" alt="Add Task" id="Add">
+    
+        <div id="MainDiv">
+            <main id="MainPart">
+                <section id="Diagramm">
+                    <div id="tata">Tâches</div>
+                    <div>Ressources</div>
+                    <div>Début</div>
+                    <div>Fin</div>
+                    <span id="dur">Durée</span>
+                    <span id="real">Jour réalisé</span>
+                    <span id="rest">Jour restant</span>
+                </section>
+            </main>
+            <div id="SecondDiv"></div>
+        </div>
+    </section>
+
+    <div style="display: none" id="popup">
+        <h2>Ajouter une nouvelle Tâche</h2>
+
+        <label for="">Nom de la nouvelle tâche : </label>
+        <input type="text" placeholder="Tâches" id="addNewTask" required>
+
+        <label for="">Nom de la ressource : </label>
+        <input type="text" placeholder="Ressources" id="addNewRessource" required>
+
+        <label for="">Date de début : </label>
+        <input type="date" id="addNewDateD" required>
+
+        <label for="">Date de fin : </label>
+        <input type="date" id="addNewDateF" required>
+
+        <div id="option">            
+            <button id="save">Sauvegarder</button>
+            <button id="cancel">Annuler</button>
+        </div>
+    </div>
+    
+    <script src="/JavaScript/project-detail.js" defer></script>
+    <script>
+        async function getUser(token) {
+            const response = await fetch('/api/users/me', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token 
+                }
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+                console.log(userData);
+            } else {
+                console.log('Failed to fetch user data');
+                window.location.href = "/login"
+            }
+        }
+
+        getUser(localStorage.getItem('token'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 5px;
+}
+
+#mainDiv
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#mainDiv img
+{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#mainDiv a
+{
+    background-color: #0d993a;
+    color: white;
+    padding: 5px 10px;
+    width: 70%;
+    border-radius: 10px;
+    font-size: 1.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.7s;
+}
+
+#mainDiv a:hover
+{
+    background-color: #87c53e;
+}
+
+.list-projects
+{
+    list-style: none;
+}
+
+.mainSection
+{
+    background: white;
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    overflow: scroll;
+    justify-content: space-between;
+    background: #eafff1;
+}
+
+.divProjects
+{
+    width: 50%;
+    padding: 3%;
+}
+
+.divImg
+{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addNewProject 
+{
+    margin: 40px;
+}
+
+#addNewProject input
+{
+    border: none;
+    padding: 5px;
+    width: 50%;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+
+#addNewProject input:focus
+{
+    outline: none;
+}
+
+#addNewProject button
+{
+    background: #87c53e;
+    color: #fff;
+    font-size: 0.9em;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.7s;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#addNewProject button:hover
+{
+    background: #0d993a;   
+}
+
+@media screen and (max-width: 970px) {
+    .divImg
+    {
+           display: none;
+    }
+
+    .divProjects
+    {
+        width: 100%;
+    }
+}

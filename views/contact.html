@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AMES</title>
+    <link rel="stylesheet" href="/contact.css">
+    <link rel="shortcut icon" href="/Img/logo.png">
+</head>
+<body>
+    <header>
+        <div class="banniere-header">
+            <a href="/"><img src="Img/logo.png" alt="AMES" width="150px"></a>
+        </div>
+        <nav class="navigation-header">
+            <ul>
+                <a href="/"><li>Accueil</li></a>
+                <a href="/projects-list"><li>Planification</li></a>
+                <a href="/contact"><li>Contact</li></a>
+            </ul>
+            <div class="icon">
+                <a href="/login" class="log" id="login"><img src="Img/connexion.png" alt="connexion" width="30px"></a>
+                <a href="/logout" class="log" id="logout" style="display: none;"><img src="Img/connexion.png" alt="déconnexion" width="30px"></a>
+                <img src="Img/menu.png" alt="" width="30px" id="menu">
+                <img src="Img/fermer.png" alt="" width="30px" id="menu2" style="display: none;">
+            </div>
+        </nav>        
+    </header>
+
+    <nav id="second-menu" style="display: none;">
+        <ul>
+            <a href="/"><li>Accueil</li></a>
+            <a href="/projects-list"><li>Plannification</li></a>            
+            <a href="/contact"><li>Contact</li></a>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <h1>Contactez-nous</h1>
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required rows="10"></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <!-- <img src="Img/logo.png" alt="AMES" width="150px"> -->
+            <p class="follow">Suivez moi</p>
+            <div>
+                <a href="https://www.linkedin.com/in/alain-mathon-0a416b89/" target="_blank" style="padding: 0;"><img src="img/linkedin.png" alt="" width="25px"></a>
+            </div>
+            <div>
+                <ul>
+                    <a href="/"><li>Accueil</li></a>
+                    <a href="/projects-list"><li>Planification</li></a>                    
+                    <a href="/contact"><li>Contact</li></a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleResize() {
+            const mq = window.matchMedia('(min-width: 970px)');
+            if (mq.matches) {
+                document.getElementById("menu").style.display = 'none';
+                document.getElementById("menu2").style.display = 'none';
+                document.getElementById("second-menu").style.display = 'none';
+            } else {
+                if(document.getElementById("menu2").style.display === 'none'){
+                    document.getElementById("menu").style.display = 'block';
+                }
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        document.getElementById("menu").addEventListener('click', function() {
+            document.getElementById("menu").style.display = "none"
+            document.getElementById("menu2").style.display = "block"
+            document.getElementById("second-menu").style.display = "block"            
+        })
+
+        document.getElementById("menu2").addEventListener('click', function() {
+            document.getElementById("menu2").style.display = "none"
+            document.getElementById("second-menu").style.display = "none"
+            document.getElementById("menu").style.display = "block"
+        })
+    </script>
+</body>
+</html>

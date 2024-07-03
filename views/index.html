@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil | AMES</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="shortcut icon" href="/Img/logo.png">
+</head>
+<body>
+    <header>
+        <div class="banniere-header">
+            <a href="/"><img src="Img/logo.png" alt="AMES" width="150px"></a>
+        </div>
+        <nav class="navigation-header">
+            <ul>
+                <a href="/"><li>Accueil</li></a>
+                <a href="/projects-list"><li>Planification</li></a>                
+                <a href="/contact"><li>Contact</li></a>
+            </ul>
+            <div class="icon">
+                <a href="/login" class="log" id="login"><img src="Img/connexion.png" alt="connexion" width="30px"></a>
+                <a href="/logout" class="log" id="logout" style="display: none;"><img src="Img/connexion.png" alt="déconnexion" width="30px"></a>
+                <img src="Img/menu.png" alt="" width="30px" id="menu">
+                <img src="Img/fermer.png" alt="" width="30px" id="menu2" style="display: none;">
+            </div>
+        </nav>        
+    </header>
+
+    <nav id="second-menu" style="display: none;">
+        <ul>
+            <a href="/"><li>Accueil</li></a>
+            <a href="/projects-list"><li>Plannification</li></a>            
+            <a href="/contact"><li>Contact</li></a>
+        </ul>
+    </nav>
+
+    <h1> Mon parcours : </h1>
+    <section class="sec-parcours">
+        <div class="parcours p1">
+            <img src="/Img/logoN.png" alt="" width="100px" height="100px">
+            <div class="entete">          
+                <div class="Entreprise" id="AMES">
+                    <p>AM Expertises & Services</p>
+                    <p>février 2024 - aujourd'hui <span class="point" id="AMES-date"></span></p>
+                </div>                
+                <div id="AMES-content" style="display: none;">
+                    <p class="role">CEO * Gérant et fondateur de AM Expertises & Services</p>
+                    <p class="role">Expérience de plus de 25 ans dans les métiers de gestion de la donnée et d'accompagnement des besoins métier</p>
+                    <div class="detail">
+                        <p>Expertises & Services Oracle EPM Cloud - PBCS - Hyperion Planning</p>
+                        <div class="detail2">
+                            <p>- Accompagnement dans la mise en œuvre de projets EPM</p>
+                            <p>- Accompagnement des clients dans les choix structurels et organisationnels</p>
+                            <p>- Implémentation de Maintenance Applicative</p>
+                            <p>- Gestion de compte AMS</p>
+                        </div>
+                        <p>Expertise & Services HR Access</p>
+                        <div class="detail2">
+                            <p>- Pilotage de projet RH, paie, Gestion Administrative</p>
+                            <p>- Maintenance évolutive et résolution d'anomalies</p>
+                            <p>- Gestion de compte AMS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parcours p2">
+            <img src="/Img/klee.png" alt="" width="100px" height="100px">
+            <div class="entete">
+                <div class="Entreprise" id="klee">
+                    <p>Klee performance</p>
+                    <p>septembre 2016 - mars 2024 <span class="point"> 7ans et 7mois</span></p>
+                </div>
+                <div id="klee-content" style="display: none;">
+                    <p class="role">Responsable de Veille Technologique</p>
+                    <p class="role">janvier 2023 - mars 2024 <span id="point"> 1 an 3 mois</span></p>
+                    <div class="detail">
+                        <p>A ce titre j'analyse et teste toutes les nouveautés mensuelles Oracle EPM Cloud dans le but,
+                            de publier sous forme d'une Newsletter mensuelle nos retours d'expérience, 
+                            de capitaliser pour Klee Performance les bonnes pratiques/connaissances.</p>
+                    </div>
+
+                    <p class="role">Responsable de la Cellule Qualité</p>
+                    <p class="role">janvier 2023 - mars 2024 <span id="point"> 1 an 3 mois</span></p>
+                    <div class="detail">
+                        <p>Lancement de la Cellule Qualité au sein de Klee Performance dans l'optique de faire profiter nos collaborateurs et nos clients des meilleures pratiques du marché et des retours d'expérience à déployer.</p>
+                    </div>
+
+                    <p class="role">Manager</p>
+                    <p class="role" style="margin-bottom: 50px;">avril 2021 - mars 2024 <span id="point"> 3 ans</span></p>
+
+                    <p class="role">Chef de projet</p>
+                    <p class="role">septembre 2016 - avril 2021 <span id="point"> 4 ans 8 mois</span></p>
+                    <div class="detail">
+                        <p>J'interviens sur des missions d’intégration ou de Tierce Maintenance Applicative autour des solutions EPM d’Oracle</p>
+                        <p>Projet Dalkia - août 2018</p>
+                        <p>Initialisation de la TMA pour Klee Performance de l'ensemble des applications PBCS.</p>
+                        <p>Outils mis en œuvre :</p>
+                        <div class="detail2">
+                            <p>- PBCS, SOA</p>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <p>Projet IMPRIMERIE NATIONALE - début avril 2018</p>
+                        <p>Projet d’implémentation d’un nouvel EPM pour le Compte d’Exploitation</p>
+                        <div class="detail2">
+                            <p>− Animation des ateliers de conception et rédaction des spécifications</p>
+                            <p>− Mise en place des flux développés sous FDMEE</p>
+                            <p>− Gestion des changements et des évolutions</p>
+                            <p>− Accompagnement de la MOA lors de la recette métier</p>
+                            <p>− Accompagnement de la MOA lors du démarrage opérationnel</p>
+                            <p>− Initialisation du projet de TMA</p>
+                        </div>
+                        <p>Outils mis en œuvre :</p>
+                        <div class="detail2">
+                            <p>− PBCS, Data Management et EPM Automate</p>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <p>KIABI - 2016</p>
+                        <p>Projet de migration de l’application Planning Compte d’Exploitation et KPI</p>
+                        <div class="detail2">
+                            <p>− Animation des ateliers de conception et rédaction des spécifications</p>
+                            <p>− Mise en place des flux développés sous ODI</p>
+                            <p>− Accompagnement de la MOA lors de la recette métier</p>
+                        </div>
+                        <p>Réalisation de demandes d’évolution dans le cadre de la TMA Planning (règles de calcul, WebForm)</p>
+                        <p>Outils mis en œuvre :</p>
+                        <div class="detail2">
+                            <p>− Hyperion Planning et ODI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parcours p2">
+            <img src="/Img/auchan.png" alt="" width="100px" height="100px">
+            <div class="entete">
+                <div class="Entreprise" id="Auchan">
+                    <p>Auchan<p>
+                    <p>février 2004 - août 2016 <span class="point"> 12ans et 7mois</span></p>
+                </div>
+                <div style="margin-bottom: 50px; display: none;" id="Auchan-content">
+                    <p class="role">Chef de projet</p>
+                </div>
+            </div>
+        </div>
+        <div class="parcours p2">
+            <img src="/Img/ibm.png" alt="" width="100px" height="100px">
+            <div class="entete">
+                <div class="Entreprise" id="IBM">
+                    <p>IBM<p>
+                    <p>1998 - 2001<span class="point"> 3 ans</span></p>
+                </div>
+                <div id="IBM-content" style="display: none;">
+                    <p class="role">Chargé d'étude</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <!-- <img src="Img/logo.png" alt="AMES" width="150px"> -->
+            <p class="follow">Suivez moi</p>
+            <div>
+                <a href="https://www.linkedin.com/in/alain-mathon-0a416b89/" target="_blank" style="padding: 0;"><img src="/Img/linkedin.png" alt="" width="25px"></a>
+            </div>
+            <div>
+                <ul>
+                    <a href="/"><li>Accueil</li></a>
+                    <a href="/projects-list"><li>Planification</li></a>
+                    <a href="/contact"><li>Contact</li></a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JavaScript/index.js"></script>
+</body>
+</html>

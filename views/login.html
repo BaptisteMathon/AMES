@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel="shortcut icon" href="/Img/logo.png">
+</head>
+<body>
+    <main> 
+        <div id="log">            
+            <h2>Connexion :</h2>
+            <form id="loginForm">
+                <div>                    
+                    <img src="/Img/email.png" alt="" width="24px" height="24px">
+                    <input type="email" id="loginEmail" placeholder="Email" required />
+                </div>
+                <div>    
+                    <img src="/Img/verrouillage.png" alt="" width="24px" height="24px">
+                    <input type="password" id="loginPassword" placeholder="Mot de passe" required />
+                </div>
+                <button id="button" type="submit">Connexion</button>
+                <a href="/" id="acc">Retour à l'accueil</a>
+            </form>
+        </div>   
+        <div id="AMES">
+            <img src="Img/logoN.png" alt="AMES" width="70%" >
+        </div>    
+    </main>
+
+    <script>
+        getUser()
+        async function getUser() {
+            const token = localStorage.getItem('token');
+            const response = await fetch('/api/users/me', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token // Ajoutez le token ici
+                }
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+                window.location.href = "/logout"
+                console.log(userData);
+            } else {
+                console.log('Failed to fetch user data');
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const response = await fetch('/api/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+            // console.log(data);
+            if (response.ok) {
+                localStorage.setItem('token', data.token);
+                console.log(data.token)  
+                getUser()            
+                window.location.href = "/"
+            } else {
+                alert('Login failed: ' + data.msg);
+            }
+        });
+        
+    </script>
+</body>
+</html>

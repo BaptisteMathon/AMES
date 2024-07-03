@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/logout.css">
+</head>
+<body>  
+    <main class="main-info">
+        <button id="logout">Déconnexion</button>
+    
+        <h2>Vos informations :</h2>
+        <div id="info">
+            <div class="info-perso">
+                <p class="info-text">Username : </p>
+                <p id="username"></p>
+            </div>
+            <div class="info-perso">
+                <p class="info-text"> Email : </p>
+                <p id="email"></p>
+            </div>
+        </div>
+
+        <div class="back-accueil">
+            <a href="/" class="accueil">Retour à l'accueil</a>
+        </div>
+    
+        <div id="Register" style="display: none">
+            <h2>Création d'un nouvel utilisateur :</h2>
+            <form id="registerForm">
+                <div class="input-out">
+                    <img src="Img/connexion2.png" alt="" width="24px" height="24px">
+                    <input type="text" id="registerUsername" placeholder="Username" required />
+                </div>
+                <div class="input-out">
+                    <img src="Img/email.png" alt="" width="24px" height="24px">
+                    <input type="email" id="registerEmail" placeholder="Email" required />
+                </div>
+                <div class="input-out">
+                    <img src="Img/verrouillage.png" alt="" width="24px" height="24px">
+                    <input type="password" id="registerPassword" placeholder="Password" required />
+                </div>
+                <button type="submit" class="add">Création du nouvel utilisateur</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="/JavaScript/logout.js" type="module"></script>
+</body>
+</html>

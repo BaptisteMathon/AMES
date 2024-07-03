@@ -1,0 +1,208 @@
+body
+{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 300px;
+}
+
+.headerPage
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1
+{
+    font-size: 3em;
+}
+
+h1::after
+{
+    content: "/";
+    margin: 0 10px;
+}
+
+#MainPart 
+{
+    margin: 0;
+}
+
+#MainPart input
+{
+    border: none;
+    padding: 5px;
+}
+
+#MainPart input
+{
+    border-bottom: 1px solid black;
+}
+
+#MainDiv
+{
+    display: flex;
+    position: absolute;
+}
+
+#SecondDiv section
+{
+    margin: 0 0 0 5px;
+    display: flex;    
+}
+
+#SecondDiv section div
+{
+    width: 85px;
+}
+
+#Diagramm 
+{
+    display: flex;
+}
+
+#tata
+{
+    margin-left: 50px;
+}
+
+#Diagramm div
+{
+    width: 150px;
+    padding: 5px;
+}
+
+#Diagramm div:nth-child(odd)
+{
+    background-color: #87c53e;
+}
+
+#Add
+{
+    margin: 0 0 15px 0;
+    cursor: pointer;
+}
+
+
+#popup
+{
+    position: absolute;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #f7fffa;
+    padding: 2% 20% 2% 2%;
+    border-radius: 10px;
+}
+
+#popup h2
+{
+    font-size: 2.5em;
+}
+
+#popup label
+{
+    font-size: 1.5em;
+}
+
+#popup input
+{
+    border: none;
+    background-color: #cccccc;
+    padding: 5px 2px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.mainSectionPlan
+{
+    margin: 5px;
+}
+
+#option
+{
+    margin-top: 40px;
+}
+
+#save
+{
+    border: none;
+    background-color: #00ff00;
+    padding: 4px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+#save:hover
+{
+    transition: 0.7s;
+    color: #ffffff;
+}
+
+#cancel
+{
+    border: none;
+    background-color: #ff0000;
+    padding: 4px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+#cancel:hover
+{
+    transition: 0.7s;
+    color: #ffffff;
+}
+
+#updateDiagramm
+{
+    color: blueviolet;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#dur
+{
+    width: 50px;
+    padding: 5px;
+    background-color: #87c53e;
+}
+
+#RestAfaire
+{
+    margin: 0;
+    padding: 5px;
+    width: 75px;
+    height: 16px;
+    border-bottom: 1px solid black;
+}
+
+#real
+{
+    width: 90px;
+    padding: 5px;
+}
+
+#rest
+{
+    width: 90px;
+    padding: 5px;
+    background-color: #87c53e;
+}
+
+#childSection
+{
+    display: flex;
+}
+
+input:focus
+{
+    outline: none;
+}

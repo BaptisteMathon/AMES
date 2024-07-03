@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id='title'>TEMP</title>
+    <link rel="stylesheet" href="/template.css">
+</head>
+<body>
+
+    <a href="/project-list">Liste Projets</a>
+
+    <button id="update" onclick="Update()">Mettre à jour</button>
+
+    <h1 id="name-project"><%= name %></h1>
+
+    <input type="text" id='main-title'>
+    <input type="text" id="secondary-title">
+    <p>Chef de projet</p>
+    <input type="text" id="date">
+    <br><br>
+    <button id="'AddTitle" onclick="AddTitle()">Ajouter un Titre</button>
+    <main id="main-template">
+        <section>
+            <div class="divdiv">
+                <h2>#</h2>
+            </div>
+            <div class="divdiv">
+                <h2>Tâches</h2>
+            </div>
+            <div class="divdiv">
+                <h2>Ressources</h2>
+            </div>
+            <div class="divdiv">
+                <h2>Début</h2>
+            </div>
+            <div class="divdiv">
+                <h2>Durée</h2>
+            </div>
+            <div class="divdiv">
+                <h2>Fin</h2>
+            </div>
+            <div class="divdiv">
+                <h2>% réal</h2>
+            </div>
+        </section>
+    </main>
+
+    <script src="../JavaScript/template.js"></script>
+</body>
+</html>

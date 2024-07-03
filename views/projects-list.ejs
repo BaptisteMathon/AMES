@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des projets | AMES</title>
+    <link rel="stylesheet" href="/projects-list.css">
+</head>
+<body>
+    
+    <a href="/">Retour à l'accueil</a>
+
+    <section class="mainSection">
+        <div class="divProjects">
+            <h1>Liste des différents projets :</h1>
+            <ul class="list-projects">
+                <% for(let i = 0; i < name.length; i++){ %>
+                    <div style="display: flex;" id="mainDiv">
+                        <img  src="/Img/fermer2.png" alt="" id="<%= name[i] %>" style="display: none" width="30px">
+                        <a href="/projects-list/<%= name[i] %>"><li><%= name[i] %></li></a>
+                    </div>
+                <% } %>                
+                <a href=""></a>
+            </ul>
+            <div id="addNewProject" style="display: none">    
+                <input type="text" id="newProject" placeholder="Saisir le nom du nouveau projet">
+                <button id="addProject">Ajouter le nouveau projet</button>
+            </div>
+        </div>            
+        <div class="divImg">
+            <img src="/Img/logoN.png" alt="" width="75%">
+        </div>
+    </section>
+
+    
+
+    <script src="JavaScript/projects-list.js"></script>
+</body>
+</html>
