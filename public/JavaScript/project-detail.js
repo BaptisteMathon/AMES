@@ -82,7 +82,7 @@ async function sendData(){
     // console.log("http://localhost:3001/update/" + data + '/' + child)
 
 
-    await fetch("http://localhost:3001/update/" + data + '/' + child)
+    await fetch(https://ames-database.vercel.app/update/" + data + '/' + child)
 
     location.reload()
 }
@@ -139,7 +139,7 @@ async function updateData(input){
         child = "null"
     }
 
-    await fetch ("http://localhost:3001/update/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/" + data + '/' + child)
 
     if(input.target.id.startsWith("Debut") || input.target.id.startsWith('Fin') || input.target.id.startsWith('Réal')){
         location.reload()
@@ -148,7 +148,7 @@ async function updateData(input){
 
 async function loadData() {
     try {
-        const response = await fetch('http://localhost:3001/get');
+        const response = await fetch('https://ames-database.vercel.app');
         const allProjects = await response.json();
         let tasks = ""
         let projectId = ""
@@ -442,7 +442,7 @@ async function delData(event){
 
     // console.log("http://localhost:3001/update/" + data + '/' + child)
 
-    await fetch ("http://localhost:3001/update/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/" + data + '/' + child)
 
     location.reload()
 }
@@ -503,7 +503,7 @@ async function addDataUnderTask (){
 
     // console.log("http://localhost:3001/update/" + data + '/' + child)
 
-    await fetch ("http://localhost:3001/update/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/" + data + '/' + child)
 
     location.reload()
 }
