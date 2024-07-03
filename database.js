@@ -1,7 +1,6 @@
 // const MongoClient = require('mongodb').MongoClient;
 
 // // let databaseUrl = process.env.REACT_APP_URL;
-// let databaseUrl = "mongodb+srv://Baptiste:OdlzZGxy3e39KNRR@ames.rusyozk.mongodb.net/AMES";
 
 // let cachedDb = null;
 // let promise = null;
