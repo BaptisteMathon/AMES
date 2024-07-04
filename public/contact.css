@@ -167,6 +167,7 @@ footer ul
     list-style: none;
     display: flex;
     margin: 5px 0 10px 0;
+    padding: 0;
 }
 
 footer ul a
