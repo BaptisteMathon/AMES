@@ -54,7 +54,7 @@ app.get('/contact', (req, res) => {
 
 app.get('/projects-list', async function(req, res) {
     try{
-        const response = await fetch("ames-database.vercel.app");
+        const response = await fetch("https://ames-database.vercel.app");
 
         const allProjects = await response.json()
         
