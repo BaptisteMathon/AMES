@@ -1,5 +1,5 @@
 async function CheckToken(){
-    const users = await fetch("http://localhost:3001/getUser")
+    const users = await fetch("https://ames-database.vercel.app/getUser")
     const infoUsers = await users.json()
     let AllId = []
     infoUsers.forEach(element => {

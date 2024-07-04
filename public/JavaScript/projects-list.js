@@ -18,7 +18,7 @@ async function getUser(token) {
         let idUser = userData._id
         console.log(idUser)
 
-        const users = await fetch("http://localhost:3001/getUser")
+        const users = await fetch("https://ames-database.vercel.app/getUser")
         const infoUsers = await users.json()
         console.log(infoUsers)
 
@@ -46,7 +46,7 @@ async function getUser(token) {
 }
 
 document.getElementById("addProject").addEventListener('click', async function() {
-    await fetch( "http://localhost:3001/addProject/" + document.getElementById("newProject").value)
+    await fetch( "https://ames-database.vercel.app/addProject/" + document.getElementById("newProject").value)
     document.getElementById("newProject").value = ""
     location.reload()    
 })
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         image.addEventListener('click', async function(event) {
             const imageId = event.target.id;
             console.log("ID de l'image cliquée : ", imageId);
-            const projects = await fetch("http://localhost:3001/get")
+            const projects = await fetch("https://ames-database.vercel.app")
             const detailProjects = await projects.json()
             let idP = ""
             detailProjects.forEach(element => {
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             const del = window.confirm(`Voulez vous vraiment supprimer le projet: ${imageId}`)
             if(del){
                 console.log("idP : " + idP)
-                await fetch("http://localhost:3001/deleteProject/" + idP)
+                await fetch("https://ames-database.vercel.app/deleteProject/" + idP)
                 location.reload()
             }
         });
