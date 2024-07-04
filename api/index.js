@@ -17,11 +17,11 @@ const PORT = process.env.PORT;
 // ----
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 app.use(cors())
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, '../views'))
 
 mongoose.connect(process.env.URL, {
     useNewUrlParser: true,
@@ -37,24 +37,24 @@ app.use('/api/users', userRoutes);
 // ********************************************************************************
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'))
+    res.sendFile(path.join(__dirname, '../views', 'index.html'))
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'))
+    res.sendFile(path.join(__dirname, '../views', 'login.html'))
 })
 
 app.get('/logout', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'logout.html'))
+    res.sendFile(path.join(__dirname, '../views', 'logout.html'))
 })
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'contact.html'))
+    res.sendFile(path.join(__dirname, '../views', 'contact.html'))
 })
 
 app.get('/projects-list', async function(req, res) {
     try{
-        const response = await fetch(process.env.URL_appJS);
+        const response = await fetch("http://localhost:3001");
 
         const allProjects = await response.json()
         
