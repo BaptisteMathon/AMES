@@ -26,7 +26,7 @@ async function getUser(token){
         let idUser = userData._id
         console.log(idUser)
 
-        const users = await fetch(https://ames-database.vercel.app/getUser")
+        const users = await fetch("https://ames-database.vercel.app/getUser")
         const infoUsers = await users.json()
         console.log(infoUsers)
 
