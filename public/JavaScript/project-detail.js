@@ -139,7 +139,7 @@ async function updateData(input){
         child = "null"
     }
 
-    await fetch ("https://ames-database.vercel.app/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/update" + data + '/' + child)
 
     if(input.target.id.startsWith("Debut") || input.target.id.startsWith('Fin') || input.target.id.startsWith('Réal')){
         location.reload()
