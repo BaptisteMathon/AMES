@@ -31,7 +31,7 @@ mongoose.connect(process.env.URL, {
     .catch(err => console.log(err));
 
 // Routes
-const userRoutes = require('./routes/user');
+const userRoutes = require('../routes/user');
 app.use('/api/users', userRoutes);
 
 // ********************************************************************************
