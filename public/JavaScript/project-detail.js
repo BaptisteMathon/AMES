@@ -505,7 +505,7 @@ async function addDataUnderTask (){
 
     await fetch ("https://ames-database.vercel.app/update" + data + '/' + child)
 
-    location.reload()
+    // location.reload()
 }
 
 async function mainDateInfo(){
