@@ -211,7 +211,7 @@ async function loadData() {
             newOption.value = tasks[index]["Ressources"]
             newRessources.appendChild(newOption)
             // **********
-            const allRessources = await fetch('http://localhost:3001/getRessources')
+            const allRessources = await fetch('https://ames-database.vercel.app/getRessources')
             const jsonRessources = await allRessources.json()
             // console.log(jsonRessources)
             let arrayRessources = []
