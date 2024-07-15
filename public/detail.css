@@ -80,7 +80,7 @@ h1::after
 
 #Add
 {
-    margin: 0 0 15px 0;
+    margin: 25px 0 15px 0;
     cursor: pointer;
 }
 
@@ -122,7 +122,7 @@ h1::after
 
 .mainSectionPlan
 {
-    margin: 5px;
+    margin: 5px;    
 }
 
 #option
@@ -205,4 +205,78 @@ h1::after
 input:focus
 {
     outline: none;
+}
+
+#AddRessources
+{
+    text-decoration: underline;
+    color: blueviolet;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+}
+
+#manageRessource
+{
+    position: absolute;
+    top: 40%;
+    display: none;
+    flex-direction: column;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #d5ffe4;
+    padding: 2% 20% 2% 2%;
+    border-radius: 10px;
+}
+
+.ajoutRessource
+{
+    display: flex;    
+    align-items: center;
+}
+
+.ajoutRessource p
+{
+    margin: 0;
+}
+
+#ressource1
+{
+    cursor: pointer;
+    background-color: #00ff00;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 3px;
+    transition: 0.5s;
+}
+
+#ressource1:hover
+{
+    color: #fff;
+}
+
+
+#sortir
+{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+#inputRessource
+{
+    width: 200px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#delRessources
+{
+    color: red;
+    cursor: pointer;
 }

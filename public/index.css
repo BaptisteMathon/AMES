@@ -258,6 +258,20 @@ footer ul a:hover
     overflow: hidden;
 }
 
+.rotating-image:hover
+{
+    animation: rotate 3s linear infinite
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (max-width: 1080px) {
     .detail, .role
     {

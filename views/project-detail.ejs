@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des projets | AMES</title>
     <link rel="stylesheet" href="/detail.css">
+    <link rel="shortcut icon" href="/Img/logoN.png">
 </head>
 <body>   
 
-    <a href="/projects-list" id="link">Retourner au menu</a> 
-    <a href="/" id="link">Retourner a l'accueil</a> 
-    <!-- <p id="updateDiagramm">Mettre à jour</p> -->
-     <div class="headerPage">
-         <h1 id="NameProject"><%= name_project%></h1>
-        <img src="/Img/logoN.png" alt="Logo" width="100px">
-     </div>
+    <div id="div1">        
+        <a href="/projects-list" id="link">Retourner au menu</a>  
+        <a href="/" id="link">Retourner a l'accueil</a>  
+        <!-- <p id="updateDiagramm">Mettre à jour</p> -->
+        <div class="headerPage">
+            <h1 id="NameProject"><%= name_project%></h1>
+            <img src="/Img/LogoN.png" alt="" width="100px">
+        </div>
+    </div>
 
     
-    <section class="mainSectionPlan">        
+    <section id="section1" class="mainSectionPlan">  
+        <p id="AddRessources">Gérer les ressources</p>
         <img src="/Img/plus.png" alt="Add Task" id="Add">
     
         <div id="MainDiv">
@@ -56,8 +60,23 @@
             <button id="cancel">Annuler</button>
         </div>
     </div>
+
+    <div id="manageRessource">
+        <h2>Gestion des ressources</h2>
+        <div>            
+            <div class="ajoutRessource">
+                <input type="text" required placeholder="Ajouter une nouvelle ressource" id="inputRessource">
+                <p id="ressource1">Ajout de la nouvelle ressource</p>
+            </div>
+            <p id="delRessources">Supprimer une ressource</p>
+            <div id="ressourcesToDel"></div>
+        </div>
+
+        <img src="/Img/fermer2.png" alt="" width="30px" id="sortir">
+    </div>
     
     <script src="/JavaScript/project-detail.js" defer></script>
+    <script src="/JavaScript/manageRessources.js"></script>
     <script>
         async function getUser(token) {
             const response = await fetch('/api/users/me', {

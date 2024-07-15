@@ -103,6 +103,7 @@ async function updateData(input){
     for (let index = 0; index < sectionCount; index++) {
         data += document.getElementById("task" + index).value + '___'
         data += document.getElementById("Ressources" + index).value + '___'
+        // console.log(document.getElementById("Ressources" + index).value)
         data += document.getElementById("Debut" + index).value + '___'
         data += document.getElementById("Fin" + index).value + '___'
         data += document.getElementById("Réal" + index).value
@@ -197,10 +198,39 @@ async function loadData() {
             newTask.style.width = "150px"
             newTask.value = tasks[index]["Name"]
             newTask.id = "task" + index
-            let newRessources = document.createElement("input")
+            // ICI ---***----
+            let newRessources = document.createElement("select")
             newRessources.style.width = "150px"
-            newRessources.value = tasks[index]["Ressources"]
+            newRessources.style.border = "none"
+            newRessources.style.background = "#fff"
+            newRessources.style.borderBottom = "1px solid #000"
+            // newRessources.value = tasks[index]["Ressources"]
             newRessources.id = "Ressources" + index
+            let newOption = document.createElement('option')
+            newOption.innerHTML = tasks[index]["Ressources"]
+            newOption.value = tasks[index]["Ressources"]
+            newRessources.appendChild(newOption)
+            // **********
+            const allRessources = await fetch('http://localhost:3001/getRessources')
+            const jsonRessources = await allRessources.json()
+            // console.log(jsonRessources)
+            let arrayRessources = []
+            jsonRessources.forEach(element => {
+                arrayRessources.push(element.ressources)
+            });
+            console.log(arrayRessources)
+
+            let newRes;
+            arrayRessources.forEach(element => {
+                if(element != tasks[index]["Ressources"]){
+                    newRes = document.createElement('option')
+                    newRes.innerHTML = element
+                    newRessources.appendChild(newRes)
+                }
+            });
+            // console.log("json ressources")
+            // console.log(jsonRessources[0].ressources)
+            
             let newStart = document.createElement("input")
             newStart.style.width = "150px"
             newStart.type = "date"
@@ -215,11 +245,26 @@ async function loadData() {
             let newDuration = document.createElement("p")
             const date1 = new Date(tasks[index]["Début"])
             const date2 = new Date(tasks[index]["Fin"])            
-            const time1 = date1.getTime()
-            const time2 = date2.getTime()
-            const diffInMilliseconds = Math.abs(time2 - time1)
+            // !!!!!!!!!!!
             const millisecondsInDay = 24 * 60 * 60 * 1000
-            const diffInDays = (diffInMilliseconds / millisecondsInDay) + 1
+            let currentDate = date1
+            let diffInDays = 0
+
+            while(currentDate <= date2){
+                const dayOfWeek = currentDate.getDay()
+                if(dayOfWeek !== 0 && dayOfWeek !== 6){
+                    diffInDays++
+                }
+                currentDate = new Date(currentDate.getTime() + millisecondsInDay)
+            }
+
+            console.log("nombre de jour ouvrable" + diffInDays)
+            // !!!!!!!!!!!
+            // const time1 = date1.getTime()
+            // const time2 = date2.getTime()
+            // const diffInMilliseconds = Math.abs(time2 - time1)
+            // const millisecondsInDay = 24 * 60 * 60 * 1000
+            // const diffInDays = (diffInMilliseconds / millisecondsInDay) + 1
             // console.log(diffInDays)
             newDuration.innerHTML = diffInDays 
             newDuration.id = "duration" + index
@@ -272,11 +317,29 @@ async function loadData() {
                 childTask.id = "task" + index + '-' + ind
                 childTask.style.background = "#87c53e"
                 childTask.style.marginLeft = "50px"
-                let childRessources = document.createElement("input")
+                // ****************************************
+                let childRessources = document.createElement("select")
                 childRessources.style.width = "150px"
-                childRessources.value = childElt["Ressources"]
+                // childRessources.value = childElt["Ressources"]
                 childRessources.id = "Ressources" + index + '-' + ind
                 childRessources.style.background = "#87c53e"
+                childRessources.style.border = "none"
+                childRessources.style.background = "#87c53e"
+                childRessources.style.borderBottom = "1px solid #000"
+                let childOption = document.createElement("option")
+                // console.log(childElt["Ressources"])
+                childOption.innerHTML = childElt["Ressources"]
+                childOption.value = childElt["Ressources"]
+                childRessources.appendChild(childOption)
+                let newOpt;
+                arrayRessources.forEach(elt => {
+                    if(elt != childElt["Ressources"]){
+                        newOpt = document.createElement('option')
+                        newOpt.innerHTML = elt
+                        childRessources.appendChild(newOpt)
+                    }
+                })
+                // ****************************************
                 let childStart = document.createElement("input")
                 childStart.style.width = "150px"
                 childStart.type = "date"
@@ -293,11 +356,23 @@ async function loadData() {
                 let childDuration = document.createElement("p")
                 const childDate1 = new Date(childElt["Début"])
                 const childDate2 = new Date(childElt["Fin"])
-                const childTime1 = childDate1.getTime()
-                const childTime2 = childDate2.getTime()
-                const childDiffInMilliseconds = Math.abs(childTime2 - childTime1)
+                // TESTESTEST
                 const childMillisecondsInDay = 24 * 60 * 60 * 1000
-                const childDiffInDays = (childDiffInMilliseconds / childMillisecondsInDay) + 1
+                let currentDate2 = childDate1
+                let childDiffInDays = 0
+
+                while(currentDate2 <= childDate2){
+                    const dayOfWeek2 = currentDate2.getDay()
+                    if(dayOfWeek2 !== 0 && dayOfWeek2 !== 6){
+                        childDiffInDays++
+                    }
+                    currentDate2 = new Date(currentDate2.getTime() + childMillisecondsInDay)
+                }
+                // const childTime1 = childDate1.getTime()
+                // const childTime2 = childDate2.getTime()
+                // const childDiffInMilliseconds = Math.abs(childTime2 - childTime1)
+                // const childMillisecondsInDay = 24 * 60 * 60 * 1000
+                // const childDiffInDays = (childDiffInMilliseconds / childMillisecondsInDay) + 1
                 // console.log(childDiffInDays)
                 childDuration.innerHTML = childDiffInDays
                 childDuration.id = "duration" + index + '-' + ind
@@ -364,6 +439,13 @@ async function loadData() {
                 updateData(event)
             })
 
+        })
+
+        const allSelect = document.querySelectorAll('select');
+        allSelect.forEach(sel => {
+            sel.addEventListener('change', (event) => {
+                updateData(event)
+            })
         })
 
         mainDateInfo()
@@ -582,8 +664,8 @@ async function mainDateInfo(){
 
         cptLong++
 
-        console.log("longueur : " + cptLong)
-        console.log("debut : " + cptStart)
+        // console.log("longueur : " + cptLong)
+        // console.log("debut : " + cptStart)
         cptStart = cptStart * 100
         cptLong = cptLong * 100
 
