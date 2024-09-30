@@ -91,10 +91,10 @@ async function sendData(){
     // console.log(data)    
     // console.log(child)
       
-    console.log("http://localhost:3001/update/" + data + '/' + child)
+    console.log("https://ames-database.vercel.app/update/" + data + '/' + child)
 
 
-    await fetch("http://localhost:3001/update/" + data + '/' + child)
+    await fetch("https://ames-database.vercel.app/update/" + data + '/' + child)
 
     location.reload()
 }
@@ -160,7 +160,7 @@ async function updateData(input){
 
     data += "!!!" + document.getElementById("namePro").innerHTML
 
-    // console.log("http://localhost:3001/update/" + data + '/' + child)
+    // console.log("https://ames-database.vercel.app/update/" + data + '/' + child)
     // console.log(data)
     // console.log(child)
 
@@ -168,7 +168,7 @@ async function updateData(input){
         child = "null"
     }
 
-    await fetch ("http://localhost:3001/update/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/update/" + data + '/' + child)
 
     if(input.target.id.startsWith("Debut") || input.target.id.startsWith('Fin') || input.target.id.startsWith('Réal') || input.target.id.startsWith('charges')){
         location.reload()
@@ -195,7 +195,7 @@ async function loadData() {
         document.body.appendChild(imp)        
         imp.style.display = "none"
 
-        const semaine = await fetch('http://localhost:3001/getSemaine')
+        const semaine = await fetch('https://ames-database.vercel.app/getSemaine')
         const semaineJSON = await semaine.json()
         
         lundiC = (semaineJSON[0]["Lundi"] === "true")
@@ -270,7 +270,7 @@ async function loadData() {
             newOption.value = tasks[index]["Ressources"]
             newRessources.appendChild(newOption)
             // **********
-            const allRessources = await fetch('http://localhost:3001/getRessources')
+            const allRessources = await fetch('https://ames-database.vercel.app/getRessources')
             const jsonRessources = await allRessources.json()
             // console.log(jsonRessources)
             let arrayRessources = []
@@ -571,7 +571,7 @@ async function loadData() {
                     let samediB = document.getElementById("Samedi").checked
                     let dimancheB = document.getElementById("Dimanche").checked
 
-                    await fetch(`http://localhost:3001/updateSemaine/${lundiB}/${mardiB}/${mercrediB}/${jeudiB}/${vendrediB}/${samediB}/${dimancheB}`)
+                    await fetch(`https://ames-database.vercel.app/updateSemaine/${lundiB}/${mardiB}/${mercrediB}/${jeudiB}/${vendrediB}/${samediB}/${dimancheB}`)
                     location.reload()
                 })
             }
@@ -665,9 +665,9 @@ async function delData(event){
         child = "null"
     }
 
-    // console.log("http://localhost:3001/update/" + data + '/' + child)
+    // console.log("https://ames-database.vercel.app/update/" + data + '/' + child)
 
-    await fetch ("http://localhost:3001/update/" + data + '/' + child)
+    await fetch ("https://ames-database.vercel.app/update/" + data + '/' + child)
 
     location.reload()
 }
@@ -739,7 +739,7 @@ async function addDataUnderTask (){
 
     child += "1_2_3" + lastChar + "____________0"
 
-    // console.log("http://localhost:3001/update/" + data + '/' + child)
+    // console.log("https://ames-database.vercel.app/update/" + data + '/' + child)
 
     await fetch ("https://ames-database.vercel.app/update/" + data + '/' + child)
 
