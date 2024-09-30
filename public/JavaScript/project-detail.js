@@ -1,29 +1,30 @@
 const addTask = document.getElementById("Add");
 const idProject = document.getElementById("NameProject").innerHTML;
 
-addTask.addEventListener("click", addNewTask, false);
+// addTask.addEventListener("click", addNewTask, false);
+addTask.addEventListener("click", sendData, false);
 
-document.getElementById("cancel").addEventListener("click", closeWindow, false)
-document.getElementById("save").addEventListener("click", sendData, false)
+// document.getElementById("cancel").addEventListener("click", closeWindow, false)
+// document.getElementById("save").addEventListener("click", sendData, false)
 
 // document.getElementById("updateDiagramm").addEventListener("click", updateData, false)
 
 
-function addNewTask() {
-    document.getElementById("MainPart").style.opacity = 0.5
-    document.getElementById("Add").style.opacity = 0.5
-    document.getElementById("NameProject").style.opacity = 0.5
-    // document.getElementById("link").style.opacity = 0.5
-    document.getElementById("popup").style.display = "flex"
-}
+// function addNewTask() {
+//     document.getElementById("MainPart").style.opacity = 0.5
+//     document.getElementById("Add").style.opacity = 0.5
+//     document.getElementById("NameProject").style.opacity = 0.5
+//     // document.getElementById("link").style.opacity = 0.5
+//     document.getElementById("popup").style.display = "flex"
+// }
 
-function closeWindow(){
-    document.getElementById("MainPart").style.opacity = 1
-    document.getElementById("Add").style.opacity = 1
-    document.getElementById("NameProject").style.opacity = 1
-    // document.getElementById("link").style.opacity = 1
-    document.getElementById("popup").style.display = "none"
-}
+// function closeWindow(){
+//     document.getElementById("MainPart").style.opacity = 1
+//     document.getElementById("Add").style.opacity = 1
+//     document.getElementById("NameProject").style.opacity = 1
+//     // document.getElementById("link").style.opacity = 1
+//     document.getElementById("popup").style.display = "none"
+// }
 
 async function sendData(){
 
@@ -41,6 +42,10 @@ async function sendData(){
     let child = ""
     for (let index = 0; index < sectionCount; index++) {
         data += document.getElementById("task" + index).value + '___'
+        data += document.getElementById("charges" + index).value + '___'
+        let disponibility = document.getElementById("dispo" + index).value
+        disponibility = disponibility.replace(/%/g, '')
+        data += disponibility + "___"
         data += document.getElementById("Ressources" + index).value + '___'
         data += document.getElementById("Debut" + index).value + '___'
         data += document.getElementById("Fin" + index).value + '___'
@@ -53,9 +58,17 @@ async function sendData(){
                 child += index
                 child += NumberOfElement[ind].children[0].value + "___"
                 child += NumberOfElement[ind].children[1].value + "___"
+                let childDisponibility = NumberOfElement[ind].children[6].value
+                childDisponibility = childDisponibility.replace(/%/g, '')
+                child += childDisponibility + "___"
+                child += NumberOfElement[ind].children[5].value + "___"
+                child += NumberOfElement[ind].children[7].value + "___"
+                child += NumberOfElement[ind].children[8].value + "___"
                 child += NumberOfElement[ind].children[2].value + "___"
-                child += NumberOfElement[ind].children[3].value + "___"
-                child += NumberOfElement[ind].children[5].value
+                // child += NumberOfElement[ind].children[2].value + "___"
+                // child += NumberOfElement[ind].children[3].value + "___"
+                // child += NumberOfElement[ind].children[4].value + "___"
+                // child += NumberOfElement[ind].children[6].value + "___"
 
                 if(ind != NumberOfElement.length -1){
                     child += '1_2_3'
@@ -67,22 +80,21 @@ async function sendData(){
 
     }
 
-    data += document.getElementById("addNewTask").value + '___'
-    data += document.getElementById("addNewRessource").value + '___'
-    data += document.getElementById("addNewDateD").value + '___'
-    data += document.getElementById("addNewDateF").value + '___'
-    data += "0"
+    data += 'Nouvelle tâche___0____________0'
 
     data += "!!!" + document.getElementById("namePro").innerHTML
 
     if(child == ""){
         child = "null"
     }
+
+    // console.log(data)    
+    // console.log(child)
       
-    // console.log("http://localhost:3001/update/" + data + '/' + child)
+    console.log("http://localhost:3001/update/" + data + '/' + child)
 
 
-    await fetch("https://ames-database.vercel.app/update/" + data + '/' + child)
+    await fetch("http://localhost:3001/update/" + data + '/' + child)
 
     location.reload()
 }
@@ -102,6 +114,10 @@ async function updateData(input){
 
     for (let index = 0; index < sectionCount; index++) {
         data += document.getElementById("task" + index).value + '___'
+        data += document.getElementById("charges" + index).value + '___'
+        let disponibility = document.getElementById("dispo" + index).value
+        disponibility = disponibility.replace(/%/g, '')
+        data += disponibility + '___'
         data += document.getElementById("Ressources" + index).value + '___'
         // console.log(document.getElementById("Ressources" + index).value)
         data += document.getElementById("Debut" + index).value + '___'
@@ -119,9 +135,19 @@ async function updateData(input){
                 child += index
                 child += NumberOfElement[ind].children[0].value + "___"
                 child += NumberOfElement[ind].children[1].value + "___"
+                let childDisponibility = NumberOfElement[ind].children[6].value
+                childDisponibility = childDisponibility.replace(/%/g, '')
+                child += childDisponibility + "___"
+                child += NumberOfElement[ind].children[5].value + "___"
+                child += NumberOfElement[ind].children[7].value + "___"
+                child += NumberOfElement[ind].children[8].value + "___"
                 child += NumberOfElement[ind].children[2].value + "___"
-                child += NumberOfElement[ind].children[3].value + "___"
-                child += NumberOfElement[ind].children[5].value
+                // child += NumberOfElement[ind].children[0].value + "___"
+                // child += NumberOfElement[ind].children[1].value + "___"
+                // child += NumberOfElement[ind].children[2].value + "___"
+                // child += NumberOfElement[ind].children[3].value + "___"
+                // child += NumberOfElement[ind].children[4].value + "___"
+                // child += NumberOfElement[ind].children[6].value
 
                 if(ind != NumberOfElement.length -1){
                     child += '1_2_3'
@@ -135,14 +161,16 @@ async function updateData(input){
     data += "!!!" + document.getElementById("namePro").innerHTML
 
     // console.log("http://localhost:3001/update/" + data + '/' + child)
+    // console.log(data)
+    // console.log(child)
 
     if(child == ""){
         child = "null"
     }
 
-    await fetch ("https://ames-database.vercel.app/update/" + data + '/' + child)
+    await fetch ("http://localhost:3001/update/" + data + '/' + child)
 
-    if(input.target.id.startsWith("Debut") || input.target.id.startsWith('Fin') || input.target.id.startsWith('Réal')){
+    if(input.target.id.startsWith("Debut") || input.target.id.startsWith('Fin') || input.target.id.startsWith('Réal') || input.target.id.startsWith('charges')){
         location.reload()
     }     
 }
@@ -167,8 +195,28 @@ async function loadData() {
         document.body.appendChild(imp)        
         imp.style.display = "none"
 
+        const semaine = await fetch('http://localhost:3001/getSemaine')
+        const semaineJSON = await semaine.json()
+        
+        lundiC = (semaineJSON[0]["Lundi"] === "true")
+        mardiC = (semaineJSON[0]["Mardi"] === "true")
+        mercrediC = (semaineJSON[0]["Mercredi"] === "true")
+        jeudiC = (semaineJSON[0]["Jeudi"] === "true")
+        vendrediC = (semaineJSON[0]["Vendredi"] === "true")
+        samediC = (semaineJSON[0]["Samedi"] === "true")
+        dimancheC = (semaineJSON[0]["Dimanche"] === "true")
 
+        document.getElementById("Lundi").checked = lundiC
+        document.getElementById("Mardi").checked = mardiC
+        document.getElementById("Mercredi").checked = mercrediC
+        document.getElementById("Jeudi").checked = jeudiC
+        document.getElementById("Vendredi").checked = vendrediC
+        document.getElementById("Samedi").checked = samediC
+        document.getElementById("Dimanche").checked = dimancheC
 
+        const checkedDays = [dimancheC, lundiC, mardiC, mercrediC, jeudiC, vendrediC, samediC]
+
+        // console.log(tasks)
 
         for (let index = 0; index < tasks.length; index++) {
             let newSection = document.createElement("section")
@@ -198,19 +246,30 @@ async function loadData() {
             newTask.style.width = "150px"
             newTask.value = tasks[index]["Name"]
             newTask.id = "task" + index
-            // ICI ---***----
+
+            let newCharges = document.createElement("input")
+            newCharges.style.width = "70px"
+            newCharges.value = tasks[index]["Charges"]
+            // console.log(tasks[index]["Charges"])
+            newCharges.id = "charges" + index
+
+            let newDispo = document.createElement("input")
+            newDispo.style.width = "140px"
+            newDispo.value = tasks[index]["Dispo"] + '%'
+            newDispo.id = "dispo" + index
+
             let newRessources = document.createElement("select")
-            newRessources.style.width = "150px"
+            newRessources.style.width = "160px"
             newRessources.style.border = "none"
             newRessources.style.background = "#fff"
             newRessources.style.borderBottom = "1px solid #000"
-            // newRessources.value = tasks[index]["Ressources"]
+            
             newRessources.id = "Ressources" + index
             let newOption = document.createElement('option')
             newOption.innerHTML = tasks[index]["Ressources"]
             newOption.value = tasks[index]["Ressources"]
             newRessources.appendChild(newOption)
-            // **********
+        
             const allRessources = await fetch('http://localhost:3001/getRessources')
             const jsonRessources = await allRessources.json()
             // console.log(jsonRessources)
@@ -218,7 +277,7 @@ async function loadData() {
             jsonRessources.forEach(element => {
                 arrayRessources.push(element.ressources)
             });
-            console.log(arrayRessources)
+            // console.log(arrayRessources)
 
             let newRes;
             arrayRessources.forEach(element => {
@@ -252,13 +311,15 @@ async function loadData() {
 
             while(currentDate <= date2){
                 const dayOfWeek = currentDate.getDay()
-                if(dayOfWeek !== 0 && dayOfWeek !== 6){
+                
+                if(checkedDays[dayOfWeek]){
                     diffInDays++
                 }
+
                 currentDate = new Date(currentDate.getTime() + millisecondsInDay)
             }
 
-            console.log("nombre de jour ouvrable" + diffInDays)
+            // console.log("nombre de jour ouvrable" + diffInDays)
             // !!!!!!!!!!!
             // const time1 = date1.getTime()
             // const time2 = date2.getTime()
@@ -280,22 +341,37 @@ async function loadData() {
             newReal.value = tasks[index]["Réal"]
             newReal.id = "Réal" + index
 
-            newSection.appendChild(newTask)
-            newSection.appendChild(newRessources)
-            newSection.appendChild(newStart)
-            newSection.appendChild(newEnd)
-            newSection.appendChild(newDuration)
-            newSection.appendChild(newReal)            
-
-            document.getElementById("MainPart").appendChild(newSection)
-
             let newRest = document.createElement("p")
-            const DurationNumber = document.getElementById("duration" + index).innerHTML
-            const Rest = DurationNumber - tasks[index]["Réal"]
+            const Rest = tasks[index]["Charges"] - tasks[index]["Réal"]
             newRest.innerHTML = Rest
             newRest.id = "RestAfaire"
             newRest.style.width = "90px"
+
+            let newAvancement = document.createElement("p")
+            const avancementContent = (1 - (tasks[index]["Charges"] - tasks[index]["Réal"]) / tasks[index]["Charges"] ) * 100
+            newAvancement.innerHTML = Math.round(avancementContent) + ' %'
+            newAvancement.id = "avancement" + index
+            newAvancement.style.width = "90px"
+            newAvancement.style.margin = "0"
+            newAvancement.style.padding = "5px"
+            newAvancement.style.height = "16px"
+            newAvancement.style.borderBottom = "1px solid black"
+            // newAvancement.style.textAlign = "center"
+            
+            newSection.appendChild(newTask)
+            newSection.appendChild(newCharges)
+            newSection.appendChild(newReal)
+            newSection.appendChild(newAvancement)            
             newSection.appendChild(newRest)
+            newSection.appendChild(newRessources)
+            newSection.appendChild(newDispo)
+            newSection.appendChild(newStart)
+            newSection.appendChild(newEnd)
+            newSection.appendChild(newDuration)
+
+            document.getElementById("MainPart").appendChild(newSection)
+
+            
 
             // console.log(tasks[index]['children'])
 
@@ -317,9 +393,23 @@ async function loadData() {
                 childTask.id = "task" + index + '-' + ind
                 childTask.style.background = "#87c53e"
                 childTask.style.marginLeft = "50px"
+
+                let childCharges = document.createElement("input")
+                childCharges.style.width = "70px"
+                childCharges.value = childElt["Charges"]
+                childCharges.id = "charges" + index + '-' + ind
+                childCharges.style.background = "#87c53e"
+                // childCharges.style.marginLeft = "50px"
+
+                let childDispo = document.createElement("input")
+                childDispo.style.width = "140px"
+                childDispo.value = childElt["Dispo"] + '%'
+                childDispo.id = "dispo" + index + '-' + ind
+                childDispo.style.background = "#87c53e"
+
                 // ****************************************
                 let childRessources = document.createElement("select")
-                childRessources.style.width = "150px"
+                childRessources.style.width = "160px"
                 // childRessources.value = childElt["Ressources"]
                 childRessources.id = "Ressources" + index + '-' + ind
                 childRessources.style.background = "#87c53e"
@@ -363,9 +453,11 @@ async function loadData() {
 
                 while(currentDate2 <= childDate2){
                     const dayOfWeek2 = currentDate2.getDay()
-                    if(dayOfWeek2 !== 0 && dayOfWeek2 !== 6){
+
+                    if(checkedDays[dayOfWeek2]){
                         childDiffInDays++
                     }
+
                     currentDate2 = new Date(currentDate2.getTime() + childMillisecondsInDay)
                 }
                 // const childTime1 = childDate1.getTime()
@@ -390,23 +482,38 @@ async function loadData() {
                 childReal.id = "Réal" + index + '-' + ind
                 childReal.style.background = "#87c53e"
 
-                childSection.appendChild(childTask)
-                childSection.appendChild(childRessources)
-                childSection.appendChild(childStart)
-                childSection.appendChild(childEnd)
-                childSection.appendChild(childDuration)
-                childSection.appendChild(childReal)
-
-                document.getElementById("MainPart").appendChild(childSection)
-
                 let childRest = document.createElement("p")
-                const DurationNumber = document.getElementById("duration" + index+  '-' + ind).innerHTML
-                const Rest = DurationNumber - childElt["Réal"]
+                const Rest = childElt["Charges"] - childElt["Réal"]
                 childRest.innerHTML = Rest
                 childRest.id = "RestAfaire"
                 childRest.style.background = "#87c53e"
                 childRest.style.width = "90px"
+
+                let childAvancement = document.createElement("p")
+                const childAvancementContent = (1 - (childElt["Charges"] - childElt["Réal"]) / childElt["Charges"] ) * 100
+                childAvancement.innerHTML = Math.round(childAvancementContent) + ' %'
+                childAvancement.id = "avancement" + index
+                childAvancement.style.width = "90px"
+                childAvancement.style.margin = "0"
+                childAvancement.style.padding = "5px"
+                childAvancement.style.height = "16px"
+                childAvancement.style.borderBottom = "1px solid black"
+                childAvancement.style.background = "#87c53e"
+                
+                childSection.appendChild(childTask)
+                childSection.appendChild(childCharges)
+                childSection.appendChild(childReal)
+                childSection.appendChild(childAvancement)
                 childSection.appendChild(childRest)
+                childSection.appendChild(childRessources)
+                childSection.appendChild(childDispo)
+                childSection.appendChild(childStart)
+                childSection.appendChild(childEnd)
+                childSection.appendChild(childDuration)
+
+                document.getElementById("MainPart").appendChild(childSection)
+
+                
             });
 
 
@@ -448,6 +555,28 @@ async function loadData() {
             })
         })
 
+       
+
+        
+
+        const allInput = document.querySelectorAll("input")
+        allInput.forEach(element => {
+            if(element.type === "checkbox"){
+                element.addEventListener('change', async () => {
+                    let lundiB = document.getElementById("Lundi").checked
+                    let mardiB = document.getElementById("Mardi").checked
+                    let mercrediB = document.getElementById("Mercredi").checked
+                    let jeudiB = document.getElementById("Jeudi").checked
+                    let vendrediB = document.getElementById("Vendredi").checked
+                    let samediB = document.getElementById("Samedi").checked
+                    let dimancheB = document.getElementById("Dimanche").checked
+
+                    await fetch(`http://localhost:3001/updateSemaine/${lundiB}/${mardiB}/${mercrediB}/${jeudiB}/${vendrediB}/${samediB}/${dimancheB}`)
+                    location.reload()
+                })
+            }
+        });
+
         mainDateInfo()
         
     } catch (error) {
@@ -478,6 +607,10 @@ async function delData(event){
             // console.log("index : " + index)
             // console.log("lastCharacter : " + lastCharacter)
             data += document.getElementById("task" + index).value + '___'
+            data += document.getElementById("charges" + index).value + '___'
+            let disponibility = document.getElementById("dispo" + index).value
+            disponibility = disponibility.replace(/%/g, '')
+            data += disponibility + "___"
             data += document.getElementById("Ressources" + index).value + '___'
             data += document.getElementById("Debut" + index).value + '___'
             data += document.getElementById("Fin" + index).value + '___'
@@ -493,12 +626,22 @@ async function delData(event){
                         child += index
                     } else {
                         child += index - 1
-                    }                    
+                    }
                     child += NumberOfElement[ind].children[0].value + "___"
                     child += NumberOfElement[ind].children[1].value + "___"
-                    child += NumberOfElement[ind].children[2].value + "___"
-                    child += NumberOfElement[ind].children[3].value + "___"
-                    child += NumberOfElement[ind].children[5].value
+                    let childDisponibility = NumberOfElement[ind].children[6].value
+                    childDisponibility = childDisponibility.replace(/%/g, '')
+                    child += childDisponibility + "___"
+                    child += NumberOfElement[ind].children[5].value + "___"
+                    child += NumberOfElement[ind].children[7].value + "___"
+                    child += NumberOfElement[ind].children[8].value + "___"
+                    child += NumberOfElement[ind].children[2].value + "___"                  
+                    // child += NumberOfElement[ind].children[0].value + "___"
+                    // child += NumberOfElement[ind].children[1].value + '___'
+                    // child += NumberOfElement[ind].children[2].value + "___"
+                    // child += NumberOfElement[ind].children[3].value + "___"
+                    // child += NumberOfElement[ind].children[4].value + "___"
+                    // child += NumberOfElement[ind].children[6].value
     
                     if(ind != NumberOfElement.length -1){
                         child += '1_2_3'
@@ -524,7 +667,7 @@ async function delData(event){
 
     // console.log("http://localhost:3001/update/" + data + '/' + child)
 
-    await fetch ("https://ames-database.vercel.app/" + data + '/' + child)
+    await fetch ("http://localhost:3001/update/" + data + '/' + child)
 
     location.reload()
 }
@@ -548,6 +691,10 @@ async function addDataUnderTask (){
         // console.log("index : " + index)
         // console.log("lastCharacter : " + lastCharacter)
         data += document.getElementById("task" + index).value + '___'
+        data += document.getElementById("charges" + index).value + '___'
+        let disponibility = document.getElementById("dispo" + index).value
+        disponibility = disponibility.replace(/%/g, '')
+        data += disponibility + "___"
         data += document.getElementById("Ressources" + index).value + '___'
         data += document.getElementById("Debut" + index).value + '___'
         data += document.getElementById("Fin" + index).value + '___'
@@ -562,9 +709,18 @@ async function addDataUnderTask (){
                 child += index
                 child += NumberOfElement[ind].children[0].value + "___"
                 child += NumberOfElement[ind].children[1].value + "___"
+                let childDisponibility = NumberOfElement[ind].children[6].value
+                childDisponibility = childDisponibility.replace(/%/g, '')
+                child += childDisponibility + "___"
+                child += NumberOfElement[ind].children[5].value + "___"
+                child += NumberOfElement[ind].children[7].value + "___"
+                child += NumberOfElement[ind].children[8].value + "___"
                 child += NumberOfElement[ind].children[2].value + "___"
-                child += NumberOfElement[ind].children[3].value + "___"
-                child += NumberOfElement[ind].children[5].value
+                // child += NumberOfElement[ind].children[0].value + "___"
+                // child += NumberOfElement[ind].children[1].value + "___"
+                // child += NumberOfElement[ind].children[2].value + "___"
+                // child += NumberOfElement[ind].children[3].value + "___"
+                // child += NumberOfElement[ind].children[5].value
 
                 if(ind != NumberOfElement.length -1){
                     child += '1_2_3'
@@ -593,6 +749,8 @@ async function addDataUnderTask (){
 async function mainDateInfo(){
     const allStartDate = document.querySelectorAll('input[id^="Debut"]')
     const allEndDate = document.querySelectorAll('input[id^="Fin"]')
+    const allAvancement = document.querySelectorAll('p[id^="avancement"]')
+    let allAvancement2 = []
 
     let arrayAllDate = []
     allStartDate.forEach(date => {
@@ -606,16 +764,33 @@ async function mainDateInfo(){
         }
     });
 
+    allAvancement.forEach(element => {
+        allAvancement2.push(element.innerHTML)
+    });
+
+    allAvancement2 = allAvancement2.map(value => value.replace('%', '').trim())
+
+    console.log("allAvancement2")
+    console.log(allAvancement2)
+
     const uniqueSortedDates = Array.from(new Set(arrayAllDate))
         .map(date => new Date(date))
         .sort((a, b) => a - b)
         .map(date => date.toISOString().split('T')[0])
 
-    // console.log(uniqueSortedDates)
+    const startDate = uniqueSortedDates[0]
+    const endDate = uniqueSortedDates[uniqueSortedDates.length-1]
+
+    const mondays = AllMonday(startDate, endDate)
+
+    console.log("mondays")
+    console.log(startDate)
+    console.log(endDate)
+    console.log(mondays)
 
     let separator = document.createElement('section')
     let creationElt = ""
-    uniqueSortedDates.forEach((dates, index) => {
+    mondays.forEach((dates, index) => {
         creationElt = document.createElement('div')
         creationElt.innerHTML = dates
         // creationElt.style.width = "85px"
@@ -631,70 +806,120 @@ async function mainDateInfo(){
     });
     document.getElementById("SecondDiv").appendChild(separator)
 
-    let tempDebut = ""
-    let tempFin = ""
-    let cptStart = 0
-    let cptLong = 0
-    let cptFinLong = 0
-    let tempCreation = ""
-    let boolTest = false;
-    for (let index = 0; index < allStartDate.length; index++) {
-        cptStart = 0
-        cptLong = 0
-        cptFinLong = 0
-        tempDebut = allStartDate[index].value
-        tempFin = allEndDate[index].value
-        boolTest = false
-
-        uniqueSortedDates.forEach(tempDate => {
-            // console.log("uniquesorteddates : " + tempDate)
-            // console.log(tempFin)
-            if(tempDate !== tempDebut && cptLong === 0 && boolTest === false){
-                cptStart++
-            } else if(tempDate !== tempFin && cptFinLong === 0) {
-                cptLong++
-            } else {
-                cptFinLong = 1
-                if(tempDebut === tempFin){
-                    cptLong = 0
-                    boolTest = true
-                }
+    let cptr = 0
+    let test = true
+    let cptrSemaine
+    let tempCreation
+    let time
+    let avancement
+    allStartDate.forEach((debut, index) => {
+        test = true
+        cptr++
+        cptrSemaine = 0
+        mondays.forEach(lundi => {
+            // console.log(debut.value)
+            if(isSameWeek(debut.value, lundi)){
+                // console.log(cptr)
+                // console.log(lundi)
+                // console.log(debut.value)
+                // console.log("***********************")
+                test = false
+            } else if(test) {
+                cptrSemaine++
             }
         });
+        console.log(getWeekBetweenDates(debut.value, allEndDate[index].value))
+        
+        avancement = allAvancement2[index]
+        time = 100 - avancement
 
-        cptLong++
-
-        // console.log("longueur : " + cptLong)
-        // console.log("debut : " + cptStart)
-        cptStart = cptStart * 100
-        cptLong = cptLong * 100
-
-        cptStart += 5
-        // cptLong -= 5
+        console.log('****************************')
+        console.log("avancement")        
+        console.log(avancement)
+        console.log("time")
+        console.log(time)
+        console.log('****************************')
 
         tempCreation = document.createElement("div")
         tempCreation.style.height = "25px"
-        tempCreation.style.width = cptLong + "px"
-        // zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-        tempCreation.style.marginLeft = cptStart + "px"
+        tempCreation.style.width = 100 * getWeekBetweenDates(debut.value, allEndDate[index].value) + "px"
+        tempCreation.style.marginLeft = (100 * cptrSemaine) + 5 + "px"
         tempCreation.style.marginTop = "2px"
-        // tempCreation.style.marginBottom = "1px"
-        if(tempDebut !== "" && tempFin !== ""){            
-            tempCreation.style.background = "#0ea14a"
-        }
-        // tempCreation.style.borderRadius = "10px"
+        tempCreation.style.background = `linear-gradient(to left, #0ea14a ${time}%, #87c53e 0%)`;
+
 
         document.getElementById("SecondDiv").appendChild(tempCreation)
+    });
 
-        // console.log(index)
-        // console.log(tempDebut)
-        // console.log(tempFin)
-        // console.log(cptStart)
-        // console.log(cptLong)
-        // console.log("*************")
+}
+
+function AllMonday(startDate, endDate){
+    let currentDate = new Date(startDate);
+    const end = new Date(endDate);
+
+    if (currentDate.getDay() !== 1) {
+        const daysToMonday = currentDate.getDay() === 0 ? 6 : currentDate.getDay() - 1; 
+        currentDate.setDate(currentDate.getDate() - daysToMonday);
     }
-    // console.log(enfantMainPart)
 
+    const mondays = [];
+
+    while (currentDate <= end) {
+        mondays.push(new Date(currentDate)); 
+        currentDate.setDate(currentDate.getDate() + 7); 
+    }
+    return mondays.map(date => date.toISOString().split('T')[0]);
+}
+
+function isSameWeek(date1, date2) {
+    const d1 = new Date(date1)
+    const d2 = new Date(date2)
+
+    const year1 = d1.getFullYear()
+    const year2 = d2.getFullYear()
+
+    const week1 = getWeekNumber(d1)
+    const week2 = getWeekNumber(d2)
+
+    return year1 === year2 && week1 === week2
+}
+
+function getWeekNumber(date){
+    const currentDate = new Date(date)
+
+    currentDate.setHours(0, 0, 0, 0)
+
+    const dayOfWeek = (currentDate.getDay() + 6) % 7
+    currentDate.setDate(currentDate.getDate() - dayOfWeek + 3)
+
+    const firstThursday = new Date(currentDate.getFullYear(), 0, 4)
+    const diffInDays = Math.round((currentDate - firstThursday) / (24 * 60 * 60 * 1000))
+
+    return Math.floor(diffInDays / 7) + 1
+}
+
+function getWeekBetweenDates(startDate, endDate) {
+    let start = new Date(startDate);
+    const end = new Date(endDate);
+
+    // Ajuster la date de début pour qu'elle tombe sur un lundi si ce n'est pas déjà un lundi
+    const dayOfWeek = start.getDay();
+    if (dayOfWeek !== 1) {
+        // Si ce n'est pas un lundi, on avance jusqu'au lundi suivant
+        const daysToNextMonday = (8 - dayOfWeek) % 7;
+        start.setDate(start.getDate() + daysToNextMonday);
+    }
+
+    // Compteur de lundis
+    let mondayCount = 0;
+
+    // Parcourir les semaines entre start et end
+    while (start <= end) {
+        mondayCount++;  // Incrémenter le compteur pour chaque lundi trouvé
+        start.setDate(start.getDate() + 7);  // Passer au lundi suivant
+    }
+
+    return mondayCount + 1;
 }
 
 loadData();

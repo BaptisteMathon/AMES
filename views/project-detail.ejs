@@ -23,28 +23,57 @@
     <section id="section1" class="mainSectionPlan">  
         <p id="AddRessources">Gérer les ressources</p>
         <img src="/Img/plus.png" alt="Add Task" id="Add">
+
+        <div style="margin: 0 0 10px 45px;">
+            <input type="checkbox" name="Lundi" id="Lundi">
+            <label for="Lundi">Lundi</label>
+
+            <input type="checkbox" name="Mardi" id="Mardi">
+            <label for="Mardi">Mardi</label>
+
+            <input type="checkbox" name="Mercredi" id="Mercredi">
+            <label for="Mercredi">Mercredi</label>
+
+            <input type="checkbox" name="Jeudi" id="Jeudi">
+            <label for="Jeudi">Jeudi</label>
+
+            <input type="checkbox" name="Vendredi" id="Vendredi">
+            <label for="Vendredi">Vendredi</label>
+
+            <input type="checkbox" name="Samedi" id="Samedi">
+            <label for="Samedi">Samedi</label>
+
+            <input type="checkbox" name="Dimanche" id="Dimanche">
+            <label for="Dimanche">Dimanche</label>
+        </div>
     
         <div id="MainDiv">
             <main id="MainPart">
                 <section id="Diagramm">
-                    <div id="tata">Tâches</div>
-                    <div>Ressources</div>
-                    <div>Début</div>
-                    <div>Fin</div>
-                    <span id="dur">Durée</span>
-                    <span id="real">Jour réalisé</span>
-                    <span id="rest">Jour restant</span>
+                    <div class="div" id="tata">Tâches</div>
+                    <div id="charges">Charges</div>
+                    <div id="real">Jour réalisé</div>
+                    <div class="avancement">Avancement </div>
+                    <div id="rest">Jour restant</div>
+                    <div class="div">Ressources</div>
+                    <div id="dispo">Disponibilité (en %)</div>
+                    <div class="div">Début</div>
+                    <div class="div">Fin</div>
+                    <div id="dur">Durée</div>
                 </section>
             </main>
-            <div id="SecondDiv"></div>
+            <div id="SecondDiv" style="margin-right: 25px;"></div>
         </div>
     </section>
 
-    <div style="display: none" id="popup">
+    <!-- <div style="display: none" id="popup">
         <h2>Ajouter une nouvelle Tâche</h2>
 
         <label for="">Nom de la nouvelle tâche : </label>
         <input type="text" placeholder="Tâches" id="addNewTask" required>
+
+        <label for="">Charges de travail prévue : </label>
+        <input type="text" placeholder="Charges" id="addNewCharges" required>
 
         <label for="">Nom de la ressource : </label>
         <input type="text" placeholder="Ressources" id="addNewRessource" required>
@@ -59,7 +88,7 @@
             <button id="save">Sauvegarder</button>
             <button id="cancel">Annuler</button>
         </div>
-    </div>
+    </div> -->
 
     <div id="manageRessource">
         <h2>Gestion des ressources</h2>

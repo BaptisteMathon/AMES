@@ -67,7 +67,7 @@ h1::after
     margin-left: 50px;
 }
 
-#Diagramm div
+#Diagramm .div
 {
     width: 150px;
     padding: 5px;
@@ -172,7 +172,7 @@ h1::after
 {
     width: 50px;
     padding: 5px;
-    background-color: #87c53e;
+    /* background-color: #87c53e; */
 }
 
 #RestAfaire
@@ -182,6 +182,7 @@ h1::after
     width: 75px;
     height: 16px;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 
 #real
@@ -190,11 +191,30 @@ h1::after
     padding: 5px;
 }
 
+#dispo
+
+{
+    width: 140px;
+    padding: 5px;
+}
+
 #rest
 {
     width: 90px;
     padding: 5px;
-    background-color: #87c53e;
+    /* background-color: #87c53e; */
+}
+
+#charges
+{
+    width: 70px;
+    padding: 5px;
+}
+
+.avancement
+{
+    width: 90px;
+    padding: 5px;
 }
 
 #childSection
