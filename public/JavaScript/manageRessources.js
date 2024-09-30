@@ -19,14 +19,14 @@ function main(){
     
     AjoutRessource.addEventListener("click", async () => {        
         const valueRessource = document.getElementById("inputRessource").value
-        await fetch("http://localhost:3001/addRessource/" + valueRessource)
+        await fetch("https://ames-database.vercel.app/addRessource/" + valueRessource)
         location.reload()
     })
 
     const delRessource = document.getElementById("delRessources")
     delRessource.addEventListener("click", async () => {
         document.getElementById("delRessources").style.display = "none"
-        const allRessource = await fetch("http://localhost:3001/getRessources")
+        const allRessource = await fetch("https://ames-database.vercel.app/getRessources")
         const jsonRessource = await allRessource.json()
         // let arrayRessource = []
         jsonRessource.forEach(element => {
@@ -41,7 +41,7 @@ function main(){
             Pimg.id = element.ressources
             Pimg.style.cursor = "pointer"
             Pimg.addEventListener('click', async () => {
-                await fetch("http://localhost:3001/deleteRessource/" + Pimg.id)
+                await fetch("https://ames-database.vercel.app/deleteRessource/" + Pimg.id)
                 location.reload()
             })
 

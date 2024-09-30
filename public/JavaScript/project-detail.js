@@ -269,7 +269,7 @@ async function loadData() {
             newOption.innerHTML = tasks[index]["Ressources"]
             newOption.value = tasks[index]["Ressources"]
             newRessources.appendChild(newOption)
-        
+            // **********
             const allRessources = await fetch('http://localhost:3001/getRessources')
             const jsonRessources = await allRessources.json()
             // console.log(jsonRessources)
