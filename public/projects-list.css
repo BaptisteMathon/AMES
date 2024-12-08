@@ -1,120 +1,174 @@
 body {
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
     margin: 0;
-    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#mainDiv
-{
+header {
+    padding: 1rem;
+    background-color: #1c5739;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
 }
 
-#mainDiv img
-{
-    margin-right: 15px;
-    cursor: pointer;
+.logo img {
+    height: 50px;
 }
 
-#mainDiv a
-{
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    color: #09c545;
+}
+
+.user-icon i {
+    font-size: 1.2rem;
+}
+
+.main-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.projects-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin: 0 0 30px 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+#add-project {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+#add-project input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#add-project input:focus {
+    outline: none;
+    border-color: #0d993a;
+}
+
+#add-project button {
     background-color: #0d993a;
     color: white;
-    padding: 5px 10px;
-    width: 70%;
-    border-radius: 10px;
-    font-size: 1.3em;
-    text-align: center;
-    text-decoration: none;
-    transition: 0.7s;
-}
-
-#mainDiv a:hover
-{
-    background-color: #87c53e;
-}
-
-.list-projects
-{
-    list-style: none;
-}
-
-.mainSection
-{
-    background: white;
-    width: 75%;
-    height: 75%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    display: flex;
-    overflow: scroll;
-    justify-content: space-between;
-    background: #eafff1;
-}
-
-.divProjects
-{
-    width: 50%;
-    padding: 3%;
-}
-
-.divImg
-{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#addNewProject 
-{
-    margin: 40px;
-}
-
-#addNewProject input
-{
     border: none;
-    padding: 5px;
-    width: 50%;
+    padding: 12px 25px;
     border-radius: 10px;
-    font-size: 0.9em;
-}
-
-#addNewProject input:focus
-{
-    outline: none;
-}
-
-#addNewProject button
-{
-    background: #87c53e;
-    color: #fff;
-    font-size: 0.9em;
-    border: none;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 0.7s;
+    font-weight: 600;
     cursor: pointer;
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
 }
 
-#addNewProject button:hover
-{
-    background: #0d993a;   
+#add-project button:hover {
+    transform: translateY(-2px);
 }
 
-@media screen and (max-width: 970px) {
-    .divImg
-    {
-           display: none;
+#add-project button span {
+    font-size: 20px;
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 15px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.delete-icon {
+    width: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    display: none;
+    cursor: pointer;
+}
+
+.delete-icon:hover {
+    opacity: 1;
+}
+
+.project-link {
+    flex: 1;
+    background: linear-gradient(135deg, #0d993a 0%, #87c53e 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.project-link:hover {
+    transform: translateX(5px);
+}
+
+@media screen and (max-width: 600px) {
+    .main-section {
+        margin: 20px auto;
     }
 
-    .divProjects
-    {
+    .projects-container {
+        padding: 20px;
+    }
+
+    .add-project {
+        flex-direction: column;
+    }
+
+    .add-project button {
         width: 100%;
+        justify-content: center;
     }
 }
+
