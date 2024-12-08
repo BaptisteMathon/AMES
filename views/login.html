@@ -8,7 +8,30 @@
     <link rel="shortcut icon" href="/Img/logoN.png">
 </head>
 <body>
-    <main> 
+
+
+    <main>
+        <div id="log">            
+            <h2>Connexion :</h2>
+            <form id="loginForm">
+                <div>                    
+                    <img src="/Img/email.png" alt="" width="24px" height="24px">
+                    <input type="email" id="loginEmail" placeholder="Email" required />
+                </div>
+                <div>    
+                    <img src="/Img/verrouillage.png" alt="" width="24px" height="24px">
+                    <input type="password" id="loginPassword" placeholder="Mot de passe" required />
+                </div>
+                <button id="button" type="submit">Connexion</button>
+                <a href="/" id="acc">Retour à l'accueil</a>
+            </form>
+        </div>   
+        <div id="AMES">
+            <img src="Img/logoN.png" alt="AMES" width="70%" >
+        </div>
+    </main>
+
+    <!-- <main> 
         <div id="log">            
             <h2>Connexion :</h2>
             <form id="loginForm">
@@ -27,7 +50,7 @@
         <div id="AMES">
             <img src="Img/logoN.png" alt="AMES" width="70%" >
         </div>    
-    </main>
+    </main> -->
 
     <script>
         getUser()
