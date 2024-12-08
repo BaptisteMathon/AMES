@@ -3,14 +3,14 @@ function main(){
     ressourcesButton.addEventListener("click", () => {
         document.getElementById("div1").style.opacity = "0.3"
         document.getElementById("section1").style.opacity = "0.3"
-        document.getElementById("popup").style.opacity = "0.3"
+        // document.getElementById("popup").style.opacity = "0.3"
         document.getElementById("manageRessource").style.display = "flex"
     })
 
     document.getElementById("sortir").addEventListener("click", () => {
         document.getElementById("div1").style.opacity = "1"
         document.getElementById("section1").style.opacity = "1"
-        document.getElementById("popup").style.opacity = "1"
+        // document.getElementById("popup").style.opacity = "1"
         document.getElementById("manageRessource").style.display = "none"
     })
 
