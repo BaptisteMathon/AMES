@@ -28,8 +28,9 @@ async function getUser(token) {
                 if(element.admin === true){
                     // document.getElementById("Register").style.display = 'block'
                     console.log('admin')
-                    document.getElementById("addNewProject").style.display = "block"
-                    const allImg = document.getElementsByTagName("img")
+                    document.getElementById("add-project").style.display = "flex"
+                    // const allImg = document.getElementsByTagName("img")
+                    const allImg = document.querySelectorAll('img[src="/Img/supprimer.png"]')
                     for(const element of allImg){
                         console.log(element.id)
                         document.getElementById(element.id).style.display = "block"                        
@@ -41,7 +42,7 @@ async function getUser(token) {
         });
     } else {
         console.log('Failed to fetch user data');
-        window.location.href = "/login"
+        window.location.href = "https://ames-pro.vercel.app/login"
     }
 }
 
@@ -52,7 +53,7 @@ document.getElementById("addProject").addEventListener('click', async function()
 })
 
 document.addEventListener("DOMContentLoaded", async function() {
-    const images = document.querySelectorAll('img[src="/Img/fermer2.png"]');
+    const images = document.querySelectorAll('img[src="/Img/supprimer.png"]');
     images.forEach( async function(image) {
         image.addEventListener('click', async function(event) {
             const imageId = event.target.id;
