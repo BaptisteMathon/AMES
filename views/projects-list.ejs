@@ -8,33 +8,50 @@
     <link rel="shortcut icon" href="/Img/logoN.png">
 </head>
 <body>
-    
-    <a href="/">Retour à l'accueil</a>
-
-    <section class="mainSection">
-        <div class="divProjects">
-            <h1>Liste des différents projets :</h1>
-            <ul class="list-projects">
-                <% for(let i = 0; i < name.length; i++){ %>
-                    <div style="display: flex;" id="mainDiv">
-                        <img  src="/Img/fermer2.png" alt="" id="<%= name[i] %>" style="display: none" width="30px">
-                        <a href="/projects-list/<%= name[i] %>"><li><%= name[i] %></li></a>
-                    </div>
-                <% } %>                
-                <a href=""></a>
-            </ul>
-            <div id="addNewProject" style="display: none">    
-                <input type="text" id="newProject" placeholder="Saisir le nom du nouveau projet">
-                <button id="addProject">Ajouter le nouveau projet</button>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/"><img src="./Img/logo.png" alt="AMES"></a>
             </div>
-        </div>            
-        <div class="divImg">
-            <img src="/Img/logoN.png" alt="" width="75%">
+            <nav>
+                <ul>
+                    <li><a href="http://www.ames-pro.fr/">Accueil</a></li>
+                    <li><a href="https://ames-pro.vercel.app/projects-list">Planification</a></li>
+                    <li><a href="https://ames-pro.vercel.app/contact">Contact</a></li>
+                    <li><a href="https://ames-pro.vercel.app/logout" class="log" id="log"><i class="fas fa-user"></i></a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    
+    <main>
+        <section class="main-section">
+            <div class="projects-container">
+                <h1>Projets de planification</h1>
+                
+                <div id="add-project">
+                    <input type="text" id="newProject" placeholder="Nom du nouveau projet">
+                    <button id="addProject">
+                        <span>+</span> Ajouter
+                    </button>
+                </div>
+
+                <ul class="projects-list">
+                    <% for(let i = 0; i < name.length; i++){ %>
+                        <div class="project-item">
+                            <img src="/Img/supprimer.png" alt="Supprimer" id="<%= name[i] %>" class="delete-icon">
+                            <a href="/projects-list/<%= name[i] %>" class="project-link">
+                                <%= name[i] %>
+                            </a>
+                        </div>
+                    <% } %>
+                </ul>
+            </div>
+        </section>    
+    </main>
+
 
     <script src="JavaScript/projects-list.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </body>
 </html>
