@@ -5,163 +5,79 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-body
-{
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+#log {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 500px;
+}
+
+h2 {
+    color: #1c5739;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#loginForm div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+input {
     width: 100%;
-    height: 1px;
-    background: linear-gradient(70deg, #0ea14a, #87c53e);
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-main 
-{
-    background: #fff;
-    width: 960px;
-    padding: 177px 130px 33px 95px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 2%;
-    border-radius: 15px;
-}
-
-h2
-{
-    font-size: 2em;
-    margin: 30px 0 75px 0;
-}
-
-#log
-{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 50px;
-}
-
-#log form div
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e6e6e6;
-    font-size: 15px;
-    width: 300px;
-    height: 50px;
-    border-radius: 25px;
-    padding: 0 30px 0 30px;
-    margin-bottom: 20px;
-}
-#log form div input
-{
-    width: 250px;
-    margin-left: 10px;
-    background: none;
-    border: none;
-    color: #8f8889;
-    font-size: 1.2em;
-    transition: 1s;
-}
-
-#log form div input:focus
-{
+input:focus {
     outline: none;
-    font-size: 1.3em;
+    border-color: #1c5739;
+    box-shadow: 0 0 5px rgba(28,87,57,0.2);
 }
 
-#AMES
-{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#button
-{
-    margin: 30px 0;
-    width: 360px;
-    height: 50px;
-    /* margin-left: 10px; */
-    background: none;
+#button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1c5739;
+    color: white;
     border: none;
-    color: #fff;
-    background: #0ea14a;
-    font-size: 1.2em;
-    border-radius: 25px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: 0.7s;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-#button:hover
-{
-    background-color: #87c53e;    
+#button:hover {
+    background-color: #09c545;
 }
 
-#acc
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    color: #8f8889;
+#acc {
+    display: block;
+    text-align: center;
+    color: #1c5739;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
 
-@media screen and (max-width: 1050px) {
-    #AMES{
-        display: none;
-    }
-    main
-    {
-        width: 50%;
-        justify-content: center;
-        /* padding: 0; */
-    }
-    #log
-    {
-        width: 100%;
-    }
+#acc:hover {
+    color: #09c545;
 }
 
-@media screen and (max-width: 750px) {
-    #AMES{
-        display: none;
-    }
-    main
-    {
-        width: 90%;
-        justify-content: center;
-    }
-    h2
-    {
-        font-size: 1.7em;
-    }
-    #log
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #log form
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    #log form div
-    {
-        width: 200px;
-        height: 35px;
-        font-size: 12px;       
-    }
-    #button
-    {
-        width: 260px;
-        height: 35px;
-    }
+#AMES {
+    text-align: center;
+    margin-top: 2rem;
 }
